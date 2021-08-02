@@ -1,24 +1,39 @@
 /*
-what is difference between this and that in javascript?
+What is JavaScript?
 
-this is a variable that gets the context of the current function 
-(which depends on how it was called).
-that has no special meaning. It is just a variable to which a value has been assigned.
+JavaScript is a client-side and server-side (nodejs) scripting language inserted into HTML pages 
+and is understood by web browsers. JavaScript is also an Object-based Programming language
+مش لوحدهم يكفوا لكدة html ,css لان web page  على  actions , events باستخدمها بحيث اعمل من خلالها  
+single thread programming ==> بتعمل حاجة واحدة فى وقت معين
 
-____________
-
-eventObj .stopPropagation();
-It will stop event propagation to the parent of the target elementin
-Bubbling Phase only.
-
-________
+_______
 
 Is JavaScript an object oriented language or not ?
+
 To be more precise, JavaScript is a prototype based object oriented language,
 which means it doesn't have classes rather it define behaviors using 
 constructor function and then reuse it using the prototype
 
-__________
+ex:
+
+function User(name) {
+    this.name = name;
+    this.welcome = function () {
+      return `Welcome ${this.name}`;
+    }
+}
+  
+  let user1 = new User("Osama");
+  console.log(user1)
+  console.log(user1.welcome) // body function هيطبع ال   
+
+  User.prototype.addTitle = function (){ //هيضيف الفنكشن جوة البروتوتايب
+    return `Mr. ${this.name}`;
+  }
+  console.log(user1.addTitle()) // Mr . Osama
+
+// Prototype  كل ما بعمل فنكشن جديدة فى ديفلت فنكشن بتتنشأ للفنكشن دى اللى هى ال
+_______
 
 What is OOPS Concept in JavaScript?
 
@@ -49,26 +64,37 @@ var objName= {
 
 ________
 
+what is difference between this and that in javascript?
+
+this ==> is a variable that gets the context of the current function 
+(which depends on how it was called).
+javascript keyword
+  موجودة جو الفنكشن او الميثود وظيفتها بتخلينى استحدم الفنكشن دى مع اوبجكيت مختلفة 
+     functionality نقدر نستفيد من ال 
+  الموجودة جو الاوبجكيت property الموجودة فى الفنكشن دى مع الاوبجكيت دة ونقدر نستعمل ال
+
+that ==> It is just a variable to which a value has been assigned.
+
+____________
+
+
+eventObj .stopPropagation();
+It will stop event propagation to the parent of the target element in Bubbling Phase only.
+
+__________
+
 What is Loop Though the Properties of an Object?
-The for/in a loop but the object's name should be the same as an already existing object you need to loop through.
-
-________
-
-What is JavaScript?
-
-JavaScript is a client-side and server-side ( (nodejs) scripting language inserted into HTML pages 
-and is understood by web browsers. JavaScript is also an Object-based Programming language
-مش لوحدهم يكفوا لكدة html ,css لان web page  على  actions , events باستخدمها بحيث اعمل من خلالها  
-single thread programming ==> بتعمل حاجة واحدة فى وقت معين
+The for/in a loop 
+but the object's name should be the same as an already existing object you need to loop through.
 
 __________
 
 Enumerate the differences between Java and JavaScript?
 
 Java is a complete programming language.
-(HTML هو برنامج مشفر يمكن تقديمه لصفحات)
-JavaScript is a coded program that can be introduced to HTML pages.
 Java is an object-oriented programming (OOPS) or structured programming languages like C++ or C, 
+
+JavaScript is a coded program that can be introduced to HTML pages (HTML هو برنامج مشفر يمكن تقديمه لصفحات)
 JavaScript is a client-side scripting language
 
 _________
@@ -89,16 +115,32 @@ What are undeclared and undefined variables?
 Undeclared variables are those that do not exist in a program and are not declared. 
 If the program tries to read the value of an undeclared variable, then a runtime error is 
 encountered.
+
 Undefined variables are those that are declared in the program but have not been given any 
 value. If the program tries to read the value of an undefined variable, an undefined value is 
 returned.
 _________
 
 Write the code for adding new elements dynamically?
+
 <script type="text/javascript"> 
-    function addNode () { var newP = document. createElement("p"); 
+    function addNode () { 
+    var newP = document.createElement("p"); 
     var textNode = document.createTextNode(" This is a new text node"); 
-    newP.appendChild(textNode); document.getElementById("firstP").appendChild(newP); } 
+    // add style
+    newP.style.backgroundColor = 'yellow';
+    newP.style.color = 'red';
+    newP.appendChild(textNode);
+    document.body.appendChild(newP)
+  } 
+  // create img
+  function GFG_Fun(){
+    var img = document.createElement('img');
+    img.src ='https://media.geeksforgeeks.org/wp-content/uploads/20190529122828/bs21.png';
+    document.body.appendChild(img);
+  }
+  addNode()
+  GFG_Fun()
 </script>
 
 _________
@@ -106,15 +148,24 @@ _________
 What are global variables? How are these variable declared?
 
 Global variables are available throughout the length of the code so that it has no scope. 
-The var keyword is used to declare a local variable or object. If the var keyword is omitted, 
-a global variable is declared.
+The var keyword is used to declare a local variable or object. 
 
-Example:
+ex:
 
-// Declare a global: globalVariable = "Test";
+function myFun(){
+  var x=5 // local variable
+}
 
-The problems faced by using global variables are the clash of variable names of local and 
-global scope. Also, it is difficult to debug and test the code that relies on global variables.
+automatic global ==> If the var keyword is omitted, a global variable is declared
+global ل local اللى قبل الاكس كدة حول من var لو شيلت كلمة 
+
+ex:
+
+function myFun(){
+   x=5 // global variable
+}
+myFun()
+alert(x)
 
 __________
 
@@ -132,46 +183,255 @@ __________
 
 What is the difference between ViewState and SessionState?
 
-'ViewState' is specific to a page in a session.
-'SessionState' is specific to user-specific data that can be accessed across all web 
-application pages
+'ViewState'
+It can be used to store information that you wish to access from same web page
+ is specific to a page in a session.
+ View state can only be visible from a single page and not multiple pages.
+ Maintained at page level only.
+ View state will retain values in the event of a postback operation occurring.
+ View state is used to allow the persistence of page-instance-specific data
+
+ ViewState is a Server Side class object which though stores the data on Client Side 
+ but it is in Encrypted Form (Hashed format) and hence cannot be read by Plain JavaScript
+ the ViewState variable is accessed inside JavaScript code with the help of Server Side 
+ Code Blocks
+
+ ex:
+ الفنكشن دى مبنية فى الباك
+ protected void Page_Load(object sender, EventArgs e){
+    ViewState["Message"] = "Hello Mudassar";
+ }
+<head runat="server">
+ <script type="text/javascript">
+        var message = '<%=ViewState["Message"].ToString() %>';
+        alert(message);
+  </script>
+</head>
+_________
+
+SessionState 
+
+ It can be used to store information that you wish to access on different web pages.
+ SessionState is the data of a user session and is maintained on the server side.
+ This data available until user closes the browser or session time-outs
+
+is specific to user-specific data that can be accessed across all web application pages
 (خاصة بالبيانات الخاصة بالمستخدم والتي يمكن الوصول إليها عبر جميع صفحات تطبيق الويب)
+ Maintained at session level.
+ Session state value availability is in all pages available in a user session.
+ Information in session state stored in the server
+ In session state, user data remains in the server.  The availability of the data is 
+ guaranteed until either the user closes the session or the browser is closed.
+ Session state is used for the persistence of user-specific data on the server’s end.
+
 __________
 
 How you can submit a form using JavaScript?
 
 To submit a form using JavaScript use
 document.form[0].submit()
-document.form[0].submit()
+
 _____________
 
 Does JavaScript support automatic type conversion?
-Yes,It is the common way of type conversion used by JavaScript developers
+Yes
 
 ____________
+type conversion ==>
+is the process of converting data of one type to another.
+For example: converting String data to Number.
 
+There are two types of type conversion in JavaScript.
+
+1- Implicit Conversion - automatic type conversion
+2- Explicit Conversion - manual type conversion
+
+1- Implicit Conversion - automatic type conversion
+JavaScript automatically converts one data type to another (to the right type).
+
+Example 1: Implicit Conversion to String
+// numeric string used with + gives string type
+let result;
+result = '3' + 2; 
+console.log(result) // "32"
+result = '3' + true; 
+console.log(result); // "3true"
+
+Example 2: Implicit Conversion to Number
+// numeric string used with - , / , * results number type
+let result;
+result = '4' - '2'; 
+console.log(result); // 2
+result = '4' - 2;
+console.log(result); // 2
+result = '4' * 2;
+console.log(result); // 8
+result = '4' / 2;
+console.log(result); // 2
+
+Example 3: Non-numeric String Results to NaN
+// non-numeric string used with - , / , * results to NaN
+let result;
+result = 'hello' - 'world';
+console.log(result); // NaN
+result = '4' - 'hello';
+console.log(result); // NaN
+
+Example 4: Implicit Boolean Conversion to Number
+// if boolean is used, true is 1, false is 0
+let result;
+result = '4' - true;
+console.log(result); // 3
+result = 4 + false;
+console.log(result); // 4
+
+Example 5: null Conversion to Number
+// null is 0 when used with number
+let result;
+result = 4 + null;
+console.log(result);  // 4
+result = 4 - null;
+console.log(result);  // 4
+
+Example 6: undefined used with number, boolean or null
+// Arithmetic operation of undefined with number, boolean or null gives NaN
+let result;
+result = 4 + undefined;
+console.log(result);  // NaN
+result = 4 - undefined;
+console.log(result);  // NaN
+result = true + undefined;
+console.log(result);  // NaN
+result = null + undefined;
+console.log(result);  // NaN
+
+
+2- Explicit Conversion - manual type conversion
+explicit type conversions are done using built-in methods.
+
+To convert numeric strings and boolean values to numbers, you can use Number().
+For example
+let result;
+// string to number
+result = Number('324');
+console.log(result); // 324
+result = Number('324e-1')  
+console.log(result); // 32.4
+// boolean to number
+result = Number(true);
+console.log(result); // 1
+result = Number(false);
+console.log(result); // 0
+
+empty strings and null values return 0. For example
+let result;
+result = Number(null);
+console.log(result);  // 0
+let result = Number(' ')
+console.log(result);  // 0
+
+If a string is an invalid number, the result will be NaN. For example,
+let result;
+result = Number('hello');
+console.log(result); // NaN
+result = Number(undefined);
+console.log(result); // NaN
+result = Number(NaN);
+console.log(result); // NaN
+
+You can also generate numbers from strings using parseInt(), parseFloat(), 
+unary operator + and Math.floor(). For example,
+let result;
+result = parseInt('20.01');
+console.log(result); // 20
+result = parseFloat('20.01');
+console.log(result); // 20.01
+result = +'20.01';
+console.log(result); // 20.01
+result = Math.floor('20.01');
+console.log(result); // 20
+
+Convert to String Explicitly
+To convert other data types to strings, you can use either String() or toString(). For example
+//number to string
+let result;
+result = String(324);
+console.log(result);  // "324"
+result = String(2 + 4);
+console.log(result); // "6"
+//other data types to string
+result = String(null);
+console.log(result); // "null"
+// using toString()
+result = (324).toString();
+console.log(result); // "324"
+result = true.toString();
+console.log(result); // "true"
+
+Note: String() takes null and undefined and converts them to string. However, toString()
+gives error when null are passed.
+
+Convert to Boolean Explicitly
+you can use Boolean().
+undefined, null, 0, NaN, '' converts to false. For example,
+let result;
+result = Boolean('');
+console.log(result); // false
+result = Boolean(0);
+console.log(result); // false
+result = Boolean(undefined);
+console.log(result); // false
+result = Boolean(null);
+console.log(result); // false
+result = Boolean(NaN);
+console.log(result); // false
+
+All other values give true. For example
+result = Boolean(324);
+console.log(result); // true
+result = Boolean('hello');
+console.log(result); // true
+result = Boolean(' ');
+console.log(result); // true
+
+Convert Date to Number
+// program to convert date to number
+// create date
+const d1 = new Date();
+console.log(d1); // Mon Nov 09 2020 10:52:32 GMT+0545 (Nepal Time)
+// converting to number
+const result = d1.getTime();
+console.log(result); // 1604898452084
+
+// program to display the date
+// get local machine date time
+const date = new Date()
+// get the date as a string
+const n = date.toDateString()
+// get the time as a string
+const time = date.toLocaleTimeString()
+// display date
+console.log('Date: ' + n)
+// display time
+console.log('Time: ' + time)
+________
 How can the style/class of an element be changed?
 It can be done in the following way:
-document.getElementById("myText"). style. fontSize = "20";
+document.getElementById("myText"). style.fontSize = "20";
 or
-document. getElementById ("myText"). className = "anyclass";
-
-___________
-
-How to read and write a file using JavaScript?
-
-There are two ways to read and write a file using JavaScript
-Using JavaScript extensions
-Using a web page and Active X objects
+document.getElementById ("myText").className = "anyclass";
 
 __________
+
 How can you convert the string of any base to an integer in JavaScript?
 
 The parseInt() function
 takes the string to be converted as its first parameter.
 The second parameter is the base of the given string.
 parseInt ("4F", 16)
+
 ______________
+
 What is called Variable typing in Javascript?
 
 Variable typing is used to assign a number to a variable. 
@@ -181,17 +441,26 @@ Example
 i = 10;
 i = "string;"
 _____________
-How to detect the operating system on the client machine?
 
+How to detect the operating system on the client machine?
 The navigator. 
-appVersion string can be used to detect the operating system on the client machine.
+appVersion string 
+
+alert('Your browser version is' + navigator.appVersion);
+output
+Your browser version is
+5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124
+Safari/537.36
 
 ___________
+
 What do you mean by NULL in Javascript?
 
 The NULL value is used to represent no value or no object.
 It implies no object or null string, no valid boolean value, no number, and no array object
+
 _____________
+
 What is the function of the delete operator?
 
 The delete keyword is used to delete the property as well as its value.
@@ -215,7 +484,7 @@ Confirm and
 Prompt
 _________
 
- What is the use of Void (0)?
+What is the use of Void (0)?
 
 Void(0) is used to prevent the page from refreshing, 
 and parameter "zero" is passed while calling.
@@ -237,14 +506,14 @@ void (2 == '2'); // void (2 == '2'), returns undefined
 ________
 
 How can a page be forced to load another page in JavaScript?
-<script language="JavaScript" type="text/javascript" >
-
+<script language="JavaScript" type="text/javascript">
+location.href="https://eduladder.com/viewquestions/19522/How-can-a-page-be-forced-to-load-another-page-in-JavaScript"
+</script>
 _________
 
 What is the difference between an alert box and a confirmation box?
 
 An alert box displays only one button, which is the OK button.
-
 But a Confirmation box displays two buttons, namely OK and cancel.
 
 _________
@@ -252,15 +521,16 @@ _________
 What are escape characters?
 
 Escape characters (Backslash) is used when working with special characters like single quotes, 
-double quotes, apostrophes, and ampersands. Place backslash before the characters to make it 
-display.
+double quotes, apostrophes, and ampersands.
+Place backslash before the characters to make it display
 
-document. write("I m a \"good\" boy.")
+document.write("I m a \"good\" boy.")
+
 _______
 
 What are JavaScript Cookies?
 
-( هي ملفات الاختبار الصغيرة المخزنة على  الكمبيوتر 
+( هي ملفات الاختبار الصغيرة المخزنة على الكمبيوتر 
    ويتم إنشاؤها عندما يزور المستخدم مواقع الويب لتخزين المعلومات التي يحتاجونها)
 وهى عبارة عن كى وفاليو المعلومات  client server معلومات بيتم تداولهم بين الويب بروزر وال 
 وبنستخدمها عشان نحتفظ بالستات بتاعة اليوزر يعنى بيحتفظ بالبيانات local storage دى بتتخزن فى ال 
@@ -270,18 +540,18 @@ Cookies are the small test files stored in a computer
 and they get created when the user visits the websites to store information that they need.
 Examples could be User Name details and shopping cart information from previous visits
 
-You can create cookies using document. cookie property like this
+You can create cookies using document.cookie property like this
 document.cookie = "cookiename=cookievalue"
 
 You can even add an expiry date to your Cookie to remove the particular Cookie from the 
 computer on the specified date. The expiry date should be set in the UTC/GMT format.
 If you do not set the expiry date, the cookie will be removed when the user closes the browser.
-document.cookie = "cookiename=cookievalue; expires= Thu, 21 Aug 2014 20:00:00 UTC"
+document.cookie ="cookiename=cookievalue; expires= Thu, 21 Aug 2014 20:00:00 UTC"
 
 You can also set the domain and path to specify which domain and to which directories in the 
 specific domain the Cookie belongs to. By default, 
 a cookie belongs to the page that sets the Cookie.
-document.cookie = "cookiename=cookievalue; expires= Thu, 21 Aug 2014 20:00:00 UTC; path=/
+document.cookie ="cookiename=cookievalue; expires= Thu, 21 Aug 2014 20:00:00 UTC; path=/
 
 //create a cookie with a domain to the current page and a path to the entire domain.
 JavaScript get Cookie
@@ -300,8 +570,39 @@ Does JavaScript has concept level scope?
 No. JavaScript does not have concept-level scope. 
 The variable declared inside the function has scope inside the function
 
-__________
+______
 
+What is lexical scope or Closure?
+Lexical scope is the ability for a function scope to access variables from the parent scope.
+We call the child function to be lexically bound by that of the parent function.
+
+لو معرفة فنكشن داخل فنكشن  مسموح انى انادى على المتغير اللى برة جو الفنكشن التانية
+
+ex1 : 
+var work=function(){
+  var x=5
+  var fun1=function(){
+   alert(x)
+  }
+
+  fun1()
+}
+work() // عشان دى تشتغل لازم انادى على الفنكشن اللى جوها جو الفنكشن دى
+
+ex2:
+
+function func1(){
+  var x=3
+  function func2(){
+    alert(x) // مسموح ان انادى على المتغير دة هنا
+    function func3(){
+      alert(x) // مسموح ان انادى على المتغير دة هنا
+      var y=7 // دة برة الفنكشن دى y مش مسموح ان انادى على المتغير 
+    }
+  }
+}
+
+_______
 What are the disadvantages of using innerHTML in JavaScript?
 
 If you use innerHTML in JavaScript, the disadvantage is
@@ -313,11 +614,14 @@ The entire innerHTML content is re-parsed and builds into elements. Therefore, i
 The innerHTML does not provide validation, and therefore we can potentially insert valid 
 and broken HTML in the document and break it
 
+_______
+
 Why you should not use innerHTML in JavaScript?
 
 innerHTML content is refreshed every time and thus is slower. 
 There is no scope for validation in innerHTML. Therefore, 
 it is easier to insert rogue code in the document and make the web page unstable
+
 __________
 
 What are the two basic groups of data types in JavaScript?
@@ -338,7 +642,8 @@ ________
 
 Which keywords are used to handle exceptions?
 
-Try… Catch---finally is used to handle exceptions in the JavaScript
+Try… Catch 
+finally is used to handle exceptions in the JavaScript
 
 Try{
     Code
@@ -354,40 +659,97 @@ __________
 What are the different types of errors in JavaScript?
 
 There are three types of errors:
-Load time errors: 
+1- Load time errors
+
 وال syntax errors الاخطاء اللى بتظهر عند تحميل صفحة الويب زى ال 
 Errors that come up when loading a web page, like improper syntax errors, 
-are known as Load time errors and generate the errors dynamically.
-Runtime errors: Errors that come due to misuse of the command inside the HTML language.
-Logical Errors: 
-These are the errors that occur due to the bad logic performed on a function with a different operation
+are known as Load time errors and generate the errors dynamically
+
+<script language="JavaScript" type="text/javascript">
+ window.onerror = function () {
+    alert(''An error has occurred. Please resolve'');
+    }
+  </script>
+
+
+2- Runtime errors
+Errors that come due to misuse of the command inside the HTML language.
+<script type=''text/javascript''>
+    window.show();
+  </script
+Notice that there is no show function defined. This program will raise an error at 
+runtime as the function which is not present is called, although the syntax is correct
+
+3- Logical Errors 
+These are the errors that occur due to the bad logic performed on a function with a different 
+operation
 
 _______
 
 What is the use of the blur function?
 Blur function is used to remove the focus from the specified object.
-________
 
-What is the difference between JavaScript and Jscript?
-Both are almost similar. Netscape and Jscript develop JavaScript was developed by Microsoft.
-__________
+_______
 
+What is the difference between JavaScript and Jscript and ECMAScript?
+
+Both of them can used on Client Side and  performance is fast enough.
+
+JavaScript: 
+JavaScript (the Netscape/Mozilla implementation of the ECMA specification)
+It is a scripting language whose trademark is Oracle Corporation.
+It’s code only run in web browser
+It cannot access web browser objects
+
+JavaScript is popular language because it is executed in any browser
+It does not support active content creation
+One need to handle multiple browser compatibility by writing code
+JavaScript is a language based on ECMAScript
+
+JScript: 
+It is also a scripting language but owned by Microsoft.
+It’s code run in microsoft browser
+It can access objects of microsoft browser such as ActiveXObject constructor
+
+is Microsoft's implementation of the ECMAScript specification
+ JScript is not popular language because it limited to internet explorer
+ It can create active online content for WWW
+It’s only support Microsoft Internet Explorer.
+
+ECMAScript:
+ECMAScript is a Standard for scripting languages such as JavaScript, JScrip
+
+JScript and JavaScript are different names for the same language.
+They have different names to avoid trademark issues.
+_______
+
+difference between jQuery and JavaScript ?
+
+jQuery
+is a fast and concise JavaScript library created by John Resig in 2006
+minimizes the code and is easier to use.
+jQuery is automatically optimized to work with a lot of browsers
+jQuery simplifies HTML document traversing, event handling, animating, 
+and Ajax interactions for Rapid Web Development.
+
+_______
 How are object properties assigned?
-obj ["class"] = 12;
+obj["class"] = 12;
 or
 obj.class = 12
 
 ________
 
 What is the 'Strict Mode in JavaScript, and how can it be enabled?
+
 Under the strict Mode, JavaScript shows errors for a piece of code 
 which did not show an error before,but might be problematic and potentially unsafe
 
 Strict Mode also solves some mistakes that hamper 
 the JavaScript engines from working efficiently
 
-function myfunction() {
-    "use strict;"
+function myfunction(){
+    "use strict"
     var v = "This is a strict mode function";
 }
 
@@ -395,7 +757,7 @@ _________
 
 What is the way to get the status of a CheckBox?
  alert(document.getElementById('checkbox1').checked); 
-If the CheckBox is checked, this alert will return TRUE.
+If the CheckBox is checked, this alert will return TRUE
 
 _________
 
@@ -404,15 +766,23 @@ What is a window.onload and onDocumentReady?
 The onload function is not run until all the information on the page is loaded. 
 This leads to a substantial delay before any code is executed.
 
+window.onload= function(){ //بعد ما تعمل لوود للصفحة نفذ الكوود دة
+document.getElementById("test").innerHTML="ooofff";
+}
+
 onDocumentReady loads the code just after the DOM is loaded.
 This allows early manipulation of the code.
+مباشرة DOM يقوم بتحميل الكود بعد تحميل 
+onDocumentReady executes when the DOM tree is built, 
+without waiting for other resources to load. 
+This allows executing the code against the DOM faster with onDocumentReady.
 
-___________
+_______
 
 How can a value be appended to an array?
 arr[arr.length] = value
 
-__________
+_______
 
 How closures work in JavaScript?
   لو عندى فنكشن والفنكشن دى بترجع فنكشن
@@ -449,8 +819,8 @@ the handler of the parent will also work as if it were clicked too
 _________
 
  What are the important properties of an anonymous function in JavaScript?
-
- A function that is declared without any named identifier is known as an anonymous function. 
+  فنكشن ملهاش اسم
+ A function that is declared without any named identifier 
  In general, an anonymous function is inaccessible after its declaration
 
  var anon = function() {
@@ -468,7 +838,8 @@ What boolean operators can be used in JavaScript?
 _________
 
  How can a particular frame be targeted, from a hyperlink, in JavaScript?
- This can be done by including the name of the required frame in the hyperlink using the 'target' attribute.
+ This can be done by including the name of the required frame in the hyperlink using 
+ the 'target' attribute
  <a href="/newpage.htm" target="newframe">>New Page</a>
 
 _________
@@ -477,6 +848,7 @@ Write the point of difference between a web garden and a web farm?
 
 Both web-garden and web-farm are web hosting systems. 
 The only difference is that 
+
 web-garden is a setup that includes many processors in a single server.
 Web Garden consists of a single server on which any number of processes can be run
 This provides logical scalability to web applications.
@@ -497,7 +869,7 @@ ____________
 
 How are object properties assigned?
 
-Assigning properties to objects is done in the same way as a value is assigned to a variable.
+ in the same way as a value is assigned to a variable.
 For example, 
 a form object's action value is assigned as 'submit' in the following manner - Document.
 form.action="submit"
@@ -507,7 +879,7 @@ _________
 What is the method for reading and writing a file in JavaScript?
 
 There are two ways to do it:
-1- This can be done by Using JavaScript extensions (runs from JavaScript Editor), 
+1-  Using JavaScript extensions (runs from JavaScript Editor), 
     example,
 
     file = fopen(getScriptPath(), 0)  // to open a file 
@@ -524,7 +896,7 @@ There are two ways to do it:
 ________
 
 How are DOM utilized in JavaScript?
-
+(dom = programming interface for html,xml)
 DOM stands for Document Object Model and is responsible for how various objects in 
 a document interact with each other. 
 DOM is required for developing web pages, which includes objects like paragraphs, 
@@ -537,18 +909,21 @@ _______
 How are event handlers utilized in JavaScript?
 
 Events are the actions that result from activities, such as clicking a link or
- filling a form by the user. An event handler is required to manage the proper
-  execution of all these events. Event handlers are an extra attribute of the object. 
+ filling a form by the user.
+  An event handler is required to manage the proper execution of all these events. 
+  Event handlers are an extra attribute of the object. 
 This attribute includes the event's name and the action taken if the event takes place
 
 _______
 
 What is the role of deferred scripts in JavaScript?
 head يعنى كأن حط الاسكربت دة فى الاخر مش فى ال html ينفذ الاسكربت وال  head جو ال scripts لما يعمل 
-The defer is a Boolean value, used to indicate that script is executed after the document 
-has been parsed. It works only with external scripts (i.e., works only when we are 
-specifying the src attribute in <script> tag). It declares that the script will not create 
-any content. So, the browser can continue the parsing of the rest of the page. 
+The defer is a Boolean value, 
+used to indicate that script is executed after the document has been parsed. 
+It works only with external scripts (i.e., works only when we are 
+specifying the src attribute in <script> tag). 
+It declares that the script will not create any content. 
+So, the browser can continue the parsing of the rest of the page. 
 The <script> with the defer attribute does not block the page
 
 The defer attribute is not allowed in older browsers, 
@@ -577,8 +952,9 @@ What are the various functional components in JavaScript?
 The different functional components in JavaScript are-
 
 First-class functions: 
-Functions in JavaScript are utilized as first-class objects. This usually means that these 
-functions can be passed as arguments to other functions, returned as values from other functions,
+Functions in JavaScript are utilized as first-class objects.
+This usually means that these functions can be passed as arguments to other functions, 
+returned as values from other functions,
 assigned to variables, or can also be stored in data structures.
 
 const Arithmetics = {
@@ -612,8 +988,8 @@ _________
 What is unescape() and escape() functions?
 
 The escape () 
-function is responsible for coding a string to transfer the information from one computer to 
-the other across a network.
+function is responsible for coding a string to transfer the information from one 
+computer to the other across a network.
 
 For Example:
 <script>document.write(escape("Hello? How are you!"))</script>
@@ -631,8 +1007,10 @@ ________
 What are the decodeURI() and encodeURI()?
 
 EncodeURl() 
-is used to convert URL into their hex coding. And DecodeURI() is used to convert the encoded 
-URL back to normal.
+is used to convert URL into their hex coding. 
+
+DecodeURI() 
+is used to convert the encoded URL back to normal.
 
 <script>
    var uri="my test.asp?name=ståle&car=saab";
@@ -689,8 +1067,9 @@ _____
 What are the important JavaScript Array Method explain with example?
 
 JavaScript Array Methods
-The Array object has many properties and methods which help developers to handle arrays easily 
-and efficiently. You can get the value of a property by specifying arrayname.property 
+The Array object has many properties and methods which help developers to handle arrays 
+easily and efficiently. 
+You can get the value of a property by specifying arrayname.property 
 and the output of a method by specifying arrayname.method()
 
 length property
@@ -709,23 +1088,24 @@ JavaScript Unit Testing is a testing method in which JavaScript tests code writt
 a web page or web application module. 
 It is combined with HTML as an inline event handler and executed in the browser 
 to test if all functionalities work fine. 
-These unit tests are then organized in the test suite.
 
+These unit tests are then organized in the test suite.
 Every suite contains several tests designed to be executed for a separate module.
 Most importantly,they don't conflict with any other module and run with fewer dependencies
 on each other (some critical situations may cause dependencies).
 
 npm install --save-dev jest
-function sum(a, b) {
-  return a + b;
-}
-module.exports = sum;
 
-const sum = require('./sum');
+function sum (a, b) {
+  return a + b
+}
+
+module.exports = sum
+const sum = require('./sum')
 
 test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
-});
+  expect(sum(1, 2)).toBe(3)
+})
 
 Finally, run yarn test or npm run test
 _______
@@ -744,7 +1124,8 @@ with JavaScript
 
 4- JavaScript is good to use in combination with HTML and CSS rather than on the web
 
-5- Difficulties with page rendering and DOM manipulation // DOM صعوبات في عرض الصفحة ومعالجة 
+// DOM صعوبات في عرض الصفحة ومعالجة 
+5- Difficulties with page rendering and DOM manipulation 
 
  example.js أحيانًا تجد رسالة خطأ على شاشتك بخصوص تعذر تحميل 
  آخر يتعلق بالتحكم في الإصدار JavaScript أو أي خطأ
@@ -846,7 +1227,7 @@ What is QuickSort Algorithm in JavaScript?
      What are Screen objects?
 
      Screen objects are used to read the information from the client's screen. 
-     The properties of screen objects are -
+     The properties of screen objects are
 
       AvailHeight: Gives the height of the client's screen
       AvailWidth: Gives the width of the client's screen
@@ -858,8 +1239,9 @@ What is QuickSort Algorithm in JavaScript?
     What is DOM in JavaScript?
     JavaScript can access all the elements in a web page using the Document Object Model (DOM).
     The web browser creates a DOM of the webpage when the page is loaded
-
+    
     ______
+
     How to use DOM and Events?
 
     Using DOM, JavaScript can perform multiple tasks. 
@@ -898,9 +1280,11 @@ What is QuickSort Algorithm in JavaScript?
     When to Use Internal and External JavaScript Code?
 
     Suppose you have only a few lines of code that is specific to a particular webpage.
-    In that case, it is better to keep your JavaScript code internal within your HTML document.
+    In that case, 
+    it is better to keep your JavaScript code internal within your HTML document.
 
-    On the other hand, if your JavaScript code is used in many web pages, 
+    On the other hand, 
+    if your JavaScript code is used in many web pages, 
     you should consider keeping your code in a separate file. If you wish to make some changes
     to your code, you have to change only one file, making code maintenance easy.
     If your code is too long, it is better to keep it in a separate file.
@@ -910,8 +1294,8 @@ What is QuickSort Algorithm in JavaScript?
 
    Explain Popup Message using event with example
 
-   Display a simple message "Welcome!!!" on your demo webpage and when the user hovers over 
-   the message, a popup should be displayed with a message "Welcome to my WebPage!!!".
+   Display a simple message "Welcome!!!" on your demo webpage and when
+the user hovers over the message, a popup should be displayed with a message "Welcome to my WebPage!!!".
 
    <script type="text/javascript">
     function trigger(){
@@ -934,7 +1318,7 @@ What is QuickSort Algorithm in JavaScript?
             cols = 10;
      createTable(rows, cols);
     function createTable(rows, cols){
-      var j=1;
+      var j=1
       var output = 
       "<table border='1' width='500' cellspacing='0'cellpadding='5'>";
       for(i=1;i<=rows;i++){

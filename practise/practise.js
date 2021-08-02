@@ -1,4 +1,11 @@
- 
+function Phone(serial, color, price) {
+    this.serial = serial;
+    this.color = color;
+    this.price = price - 100;
+  }
+  
+  let phone1 = new Phone(123, "Red", 500)
+   console.log(phone1.serial); 
 
 
 
