@@ -23,3 +23,16 @@ function fact(num){
 }
 
 console.log("fact(6) = ",fact(6))
+
+// لو عايزة ارجع عنصر اتحذف فى الاراى
+// arr=[2,3,1,5,4,7,9,10,8]
+// delete arr[3]
+
+// z=0
+// for(var i=1;i<=10;i++){
+//     if(arr.indexOf(i) === -1){
+//       document.write(i)
+//       console.log("i = ",i)
+//       break
+//     }
+// }

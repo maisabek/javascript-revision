@@ -101,14 +101,16 @@ _________
 
 What is the use of isNaN function?
 
-isNan function returns true if the argument is not a number; otherwise, it is false.
+isNaN function returns true if the argument is not a number; otherwise, it is false.
 
 _________
 
 What is negative Infinity?
 
 Negative Infinity is a number in JavaScript which can be derived by dividing negative number by zero
+
 ________
+
 
 What are undeclared and undefined variables?
 
@@ -171,7 +173,7 @@ __________
 
 What is the working of timers in JavaScript?
 
-setTimeout, setInterval, and clearInterval.
+setTimeout, setInterval , and clearInterval.
 __________
 
 What is a prompt box?
@@ -181,7 +183,7 @@ A label and box will be provided to enter the text or number
 
 __________
 
-What is the difference between ViewState and SessionState?
+What is the difference between ViewState and SessionState ?
 
 'ViewState'
 It can be used to store information that you wish to access from same web page
@@ -206,8 +208,9 @@ It can be used to store information that you wish to access from same web page
         var message = '<%=ViewState["Message"].ToString() %>';
         alert(message);
   </script>
+
 </head>
-_________
+___
 
 SessionState 
 
@@ -417,7 +420,7 @@ console.log('Time: ' + time)
 ________
 How can the style/class of an element be changed?
 It can be done in the following way:
-document.getElementById("myText"). style.fontSize = "20";
+document.getElementById("myText").style.fontSize = "20";
 or
 document.getElementById ("myText").className = "anyclass";
 
@@ -480,8 +483,9 @@ _________
 What are all the types of Pop up boxes available in JavaScript?
 
 Alert
-Confirm and
+Confirm 
 Prompt
+
 _________
 
 What is the use of Void (0)?
@@ -526,44 +530,7 @@ Place backslash before the characters to make it display
 
 document.write("I m a \"good\" boy.")
 
-_______
-
-What are JavaScript Cookies?
-
-( هي ملفات الاختبار الصغيرة المخزنة على الكمبيوتر 
-   ويتم إنشاؤها عندما يزور المستخدم مواقع الويب لتخزين المعلومات التي يحتاجونها)
-وهى عبارة عن كى وفاليو المعلومات  client server معلومات بيتم تداولهم بين الويب بروزر وال 
-وبنستخدمها عشان نحتفظ بالستات بتاعة اليوزر يعنى بيحتفظ بالبيانات local storage دى بتتخزن فى ال 
-بتاعتة ما بين كل الصفحات عشان مش كل شوية يدخل البيانات بتاعتة
-
-Cookies are the small test files stored in a computer
-and they get created when the user visits the websites to store information that they need.
-Examples could be User Name details and shopping cart information from previous visits
-
-You can create cookies using document.cookie property like this
-document.cookie = "cookiename=cookievalue"
-
-You can even add an expiry date to your Cookie to remove the particular Cookie from the 
-computer on the specified date. The expiry date should be set in the UTC/GMT format.
-If you do not set the expiry date, the cookie will be removed when the user closes the browser.
-document.cookie ="cookiename=cookievalue; expires= Thu, 21 Aug 2014 20:00:00 UTC"
-
-You can also set the domain and path to specify which domain and to which directories in the 
-specific domain the Cookie belongs to. By default, 
-a cookie belongs to the page that sets the Cookie.
-document.cookie ="cookiename=cookievalue; expires= Thu, 21 Aug 2014 20:00:00 UTC; path=/
-
-//create a cookie with a domain to the current page and a path to the entire domain.
-JavaScript get Cookie
-You can access the Cookie like this, which will return all the cookies saved for 
-the current domain.
-
-var x =  document.cookie
-
-
-JavaScript Delete Cookie To delete a cookie, you just need to set the cookie's value to 
-empty and set the value of expires to a passed date.
-__________
+________
 
 Does JavaScript has concept level scope?
 
@@ -603,6 +570,23 @@ function func1(){
 }
 
 _______
+How closures work in JavaScript?
+  لو عندى فنكشن والفنكشن دى بترجع فنكشن
+  المتغير اللى بخزن فية الفنكشن دى
+The closure is a locally declared variable related to a function that stays in memory 
+when it has returned.
+
+function greeter(name, age) {
+    var message = name + " says howdy!! He is " + age + " years old";
+    return function greet() {
+        console.log(message)
+    }
+}
+// Generate the closure
+var JamesGreeter = greeter("James", 23)
+// Use the closure
+JamesGreeter()
+_________
 What are the disadvantages of using innerHTML in JavaScript?
 
 If you use innerHTML in JavaScript, the disadvantage is
@@ -673,12 +657,17 @@ are known as Load time errors and generate the errors dynamically
 
 
 2- Runtime errors
-Errors that come due to misuse of the command inside the HTML language.
-<script type=''text/javascript''>
-    window.show();
-  </script
-Notice that there is no show function defined. This program will raise an error at 
+A runtime error is an error that occurs during the running of the program,
+ also known as the exceptions. In the example that is given below the syntax is correct, 
+ but at runtime, it is trying to call a method that does not exist
+ <script type="text/javascript">
+ // An runtime error here 
+      window.printme();
+  </script>
+Notice that there is no printme function defined. This program will raise an error at 
 runtime as the function which is not present is called, although the syntax is correct
+As in runtime error, there are exceptions and this exception is correct 
+by the help of the try and catch method
 
 3- Logical Errors 
 These are the errors that occur due to the bad logic performed on a function with a different 
@@ -726,6 +715,14 @@ _______
 difference between jQuery and JavaScript ?
 
 jQuery
+الجافا اسكربت كانت عميقة وبتحتاج تكتب كود كبير عشان تعمل 
+jQuery حاجة بسيطة بيها فظهرت ال  
+عشان تحل المشكلة دى وتقدر
+تكتب جافا اسكربت بشكل اسهل وسطور كود اقل
+
+web,mobile,desktop الجافا سكربت دلوقتى اتطورت كتير وبقت موجودة فكل مكان عال 
+jQuery وبقا سهل كتابتها والتعامل معاها بالاضافة لوجود الفريم وركس فمبقاش فى حاجة لل 
+
 is a fast and concise JavaScript library created by John Resig in 2006
 minimizes the code and is easier to use.
 jQuery is automatically optimized to work with a lot of browsers
@@ -743,8 +740,10 @@ ________
 What is the 'Strict Mode in JavaScript, and how can it be enabled?
 
 Under the strict Mode, JavaScript shows errors for a piece of code 
+التي لم تظهر أي خطأ من قبل ، ولكنها قد تكون إشكالية وربما تكون غير آمنة
 which did not show an error before,but might be problematic and potentially unsafe
 
+يحل بعض الأخطاء التي تعيق عمل محركات جافا اسكربت  بكفاءة
 Strict Mode also solves some mistakes that hamper 
 the JavaScript engines from working efficiently
 
@@ -763,43 +762,26 @@ _________
 
 What is a window.onload and onDocumentReady?
 
-The onload function is not run until all the information on the page is loaded. 
-This leads to a substantial delay before any code is executed.
+“window.onload” 
+1- will execute code when browser has loaded the DOM tree and 
+all other resources like images, objects, etc.
+2- is not cross-browser compatible
 
 window.onload= function(){ //بعد ما تعمل لوود للصفحة نفذ الكوود دة
 document.getElementById("test").innerHTML="ooofff";
 }
 
-onDocumentReady loads the code just after the DOM is loaded.
-This allows early manipulation of the code.
-مباشرة DOM يقوم بتحميل الكود بعد تحميل 
-onDocumentReady executes when the DOM tree is built, 
+
+onDocumentReady   
+مباشرة DOM يقوم بتحميل الكود بعد تحميل
+1- executes when the DOM tree is built, 
 without waiting for other resources to load. 
 This allows executing the code against the DOM faster with onDocumentReady.
-
+2- jQuery’s document.ready() will work nicely on all browsers.
 _______
 
 How can a value be appended to an array?
 arr[arr.length] = value
-
-_______
-
-How closures work in JavaScript?
-  لو عندى فنكشن والفنكشن دى بترجع فنكشن
-  المتغير اللى بخزن فية الفنكشن دى
-The closure is a locally declared variable related to a function that stays in memory 
-when it has returned.
-
-function greeter(name, age) {
-    var message = name + " says howdy!! He is " + age + " years old";
-    return function greet() {
-        console.log(message)
-    }
-}
-// Generate the closure
-var JamesGreeter = greeter("James", 23)
-// Use the closure
-JamesGreeter()
 
 _________
 
@@ -903,6 +885,10 @@ DOM is required for developing web pages, which includes objects like paragraphs
 links, etc. These objects can be operated to include 
 actions like add or delete. DOM is also required to add extra capabilities to a web page. 
 On top of that, the use of API gives an advantage over other existing models.
+_____
+
+Bom => Browser object model
+// بتتعامل مع البروزير والاكشن بيتعامل مع البروزير ملوش علاقة بالصفحة
 
 _______
 
@@ -987,7 +973,7 @@ _________
 
 What is unescape() and escape() functions?
 
-The escape () 
+The escape() 
 function is responsible for coding a string to transfer the information from one 
 computer to the other across a network.
 
@@ -1035,6 +1021,7 @@ How are JavaScript and ECMA Script related?
 
 ECMA Script is like rules and guidelines, 
 while Javascript is a scripting language used for web development
+ECMAScript is a Standard for scripting languages such as JavaScript, JScript, etc.
 
 _______
 
@@ -1050,7 +1037,7 @@ var <namespace> = {} // To initialise an empty namespace
 <script>
 var car = {
     startEngine: function () {
-        console.log("Car started");             
+        console.log("Car started")             
     }        
 }
 var bike = {
@@ -1165,24 +1152,24 @@ Jasmine is the behavior-driven development framework to unit test JavaScript.
 It is used for testing both synchronous and asynchronous JavaScript codes.
 It does not require DOM and comes with an easy syntax that can be written for any test.
 
-Karma:
+4- Karma:
 Karma is an open-source productive testing environment.
 Easy workflow control running on the command line. 
 Offers the freedom to write the tests with Jasmine, Mocha, and QUnit.
 You can run the test on real devices with easy debugging.
 
-Mocha:
+5- Mocha:
 Mocha runs on Node.js and in the browser. Mocha performs asynchronous testing more simply.
 Provides accuracy and flexibility in reporting. 
 Provides tremendous support of rich features such as test-specific timeouts, JavaScript APIs.
 
-Jest: 
+6- Jest: 
 Facebook uses jest so far to test all the JavaScript code.
 It provides the 'zero-configuration testing experience. 
 Supports independent and non-interrupting running tests without any conflict. 
 Do not require any other setup configuration and libraries.
 
-AVA: 
+7- AVA: 
 AVA is a simple JavaScript Unit Testing Framework. 
 Tests are being run in parallel and serially. 
 Parallel tests run without interrupting each other. 
