@@ -531,7 +531,24 @@ Place backslash before the characters to make it display
 document.write("I m a \"good\" boy.")
 
 ________
+What is unescape() and escape() functions?
 
+The escape() 
+function is responsible for coding a string to transfer the information from one 
+computer to the other across a network.
+
+For Example:
+<script>document.write(escape("Hello? How are you!"))</script>
+Output: Hello%3F%20How%20are%20you%21
+
+The unescape()
+function is very important as it decodes the coded string.It works in the following way. 
+
+For example:
+<script>document.write(unescape("Hello%3F%20How%20are%20you%21"))</script>
+Output: Hello? How are you
+
+________
 Does JavaScript has concept level scope?
 
 No. JavaScript does not have concept-level scope. 
@@ -672,7 +689,8 @@ by the help of the try and catch method
 3- Logical Errors 
 These are the errors that occur due to the bad logic performed on a function with a different 
 operation
-
+they occur when you make a mistake in the logic that drives your script and 
+you do not get the result you expected
 _______
 
 What is the use of the blur function?
@@ -833,7 +851,7 @@ The only difference is that
 
 web-garden is a setup that includes many processors in a single server.
 Web Garden consists of a single server on which any number of processes can be run
-This provides logical scalability to web applications.
+This provides logical scalability to web applications
 Web Garden requires less amount of physical space
 It needs aMachine.Configfile to group together multiple web servers
 A Web Garden is achieved by enabling multiple worker processes for single application pool.
@@ -955,7 +973,6 @@ const Arithmetics = {
 console.log(Arithmetics.add(100, 100));
 console.log(Arithmetics.subtract(100, 7));
 
-
 Nested functions (Higher-Order Function): 
 The functions, which are defined inside other functions, are called Nested functions. 
 They are called 'every time the main function is invoked
@@ -971,24 +988,7 @@ greet_message("Welcome To GeeksForGeeks")
 
 _________
 
-What is unescape() and escape() functions?
 
-The escape() 
-function is responsible for coding a string to transfer the information from one 
-computer to the other across a network.
-
-For Example:
-<script>document.write(escape("Hello? How are you!"))</script>
-Output: Hello%3F%20How%20are%20you%21
-
-The unescape()
-function is very important as it decodes the coded string.It works in the following way. 
-
-For example:
-<script>document.write(unescape("Hello%3F%20How%20are%20you%21"))</script>
-Output: Hello? How are you
-
-________
 
 What are the decodeURI() and encodeURI()?
 

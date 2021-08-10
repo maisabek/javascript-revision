@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+</script>
+    <p>
+        Enter your phone number (with area code) and then click "Check".
+        <br>
+        The expected format is like ###-###-####.
+      </p>
+      <form action="#" onSubmit="return false">
+        <input id="phone">
+          <button onClick="testInfo(document.querySelector('#phone'));">Check</button>
+      </form>
+      <p id="out"></p>
+      <script>
+        var myRe = new RegExp('d(b+)d', 'g');
+var myArray = myRe.exec('cdbbdbsbz');
+// console.log("myArray",myArray)
+      </script>
+    <script src="RegExp.js"></script>
+</body>
+</html>
