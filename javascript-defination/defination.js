@@ -208,8 +208,8 @@ It can be used to store information that you wish to access from same web page
         var message = '<%=ViewState["Message"].ToString() %>';
         alert(message);
   </script>
-
 </head>
+
 ___
 
 SessionState 
@@ -754,21 +754,47 @@ or
 obj.class = 12
 
 ________
+sloppy mode = non strict mode
+دا الوضع الديفلت
+_________
 
 What is the 'Strict Mode in JavaScript, and how can it be enabled?
 
-Under the strict Mode, JavaScript shows errors for a piece of code 
-التي لم تظهر أي خطأ من قبل ، ولكنها قد تكون إشكالية وربما تكون غير آمنة
-which did not show an error before,but might be problematic and potentially unsafe
+1- Under the strict Mode, JavaScript shows errors for a piece of code which did not show an 
+error before
+عشان يخلى الاداء بتاع الجافا اسكربت منطقى اكتر 
+مش هيطلع ايرور sloppy mode يعنى لو انا عرفت متغير من غير ما اديلة داتا تايب فى ال  
+هيطلع ايرور strict mode  انما فى ال 
 
-يحل بعض الأخطاء التي تعيق عمل محركات جافا اسكربت  بكفاءة
-Strict Mode also solves some mistakes that hamper 
-the JavaScript engines from working efficiently
-
-function myfunction(){
-    "use strict"
-    var v = "This is a strict mode function";
+طب فى حالة انى معرفة فنكشن وادتها متغيران بنفس الاسم 
+function sum(x,x){
+  console.log(x)
 }
+sum(4,5)
+ 5 هيطبع sloppy mode هنا فى ال 
+ هيطلع ايرور بالشكل دة strict mode اما فى ال  
+"Duplicate parameter name not allowed in this context"
+
+new لو نسيت كلمة constructor function فى حالة ال 
+function F(){
+  this.x=5  // this ==> global هنا بتشاور على الوندو فبيروح ينشأ المتغير اكس فى ال 
+}
+let c =F()
+console.log(c.x)
+هنا هيعتبر انى بنادى على الفنكشن مش باخد اوبجكيت منها 
+ففى السطر اللى بعدة هيطلع ايرور 
+ x لانة مش اوبجكيت عشان ينادى على ال 
+هيطلع ايرور عند الاكس انة مش متعرف strict Mode لو حطات ال 
+new فلازم يحط كلمة 
+
+let s ="hello"
+s.length=10
+console.log(s.length)
+فى الوضع العادى هتطبع 5 اما 
+10 مينفعش اعدل عليهاواخليها ب  read only دى s.length هيطلع ايرور لان strict mode  فى وضع ال 
+
+2- Strict Mode also solves some mistakes that hamper the JavaScript engines from working 
+efficiently  يحل بعض الأخطاء التي تعيق عمل محركات جافا اسكربت  بكفاءة
 
 _________
 
@@ -783,12 +809,11 @@ What is a window.onload and onDocumentReady?
 “window.onload” 
 1- will execute code when browser has loaded the DOM tree and 
 all other resources like images, objects, etc.
-2- is not cross-browser compatible
 
+2- is not cross-browser compatible
 window.onload= function(){ //بعد ما تعمل لوود للصفحة نفذ الكوود دة
 document.getElementById("test").innerHTML="ooofff";
 }
-
 
 onDocumentReady   
 مباشرة DOM يقوم بتحميل الكود بعد تحميل
@@ -796,6 +821,7 @@ onDocumentReady
 without waiting for other resources to load. 
 This allows executing the code against the DOM faster with onDocumentReady.
 2- jQuery’s document.ready() will work nicely on all browsers.
+
 _______
 
 How can a value be appended to an array?
@@ -853,7 +879,7 @@ web-garden is a setup that includes many processors in a single server.
 Web Garden consists of a single server on which any number of processes can be run
 This provides logical scalability to web applications
 Web Garden requires less amount of physical space
-It needs aMachine.Configfile to group together multiple web servers
+It needs a Machine.Configfile to group together multiple web servers
 A Web Garden is achieved by enabling multiple worker processes for single application pool.
 It provides better application availability compare to Web Farm
 
@@ -893,6 +919,7 @@ There are two ways to do it:
 2- Using a web page and ActiveX objects (Internet Explorer only)
     var fso = new ActiveXObject("Scripting.FileSystemObject");
     var s = fso.OpenTextFile("C:\\example.txt", 1, true);
+
 ________
 
 How are DOM utilized in JavaScript?
@@ -1327,8 +1354,6 @@ the user hovers over the message, a popup should be displayed with a message "We
 
 
 */
-
-
 
 
 

@@ -7,8 +7,6 @@ document.anchors تااج ال اية اللى مش بتودى للينك
 document.links  --> href
 */
 
-
-
 var t1=document.getElementById('show');
 // t1.innerHTML=document.title;//هيجيب التايتل واحطة فى الديف
 // t1.innerHTML=document.images.length;//هتحط عدد الصور
@@ -27,4 +25,5 @@ if(document.body.innerText.indexOf('hellooo')>-1){//هل الاسترنج دة �
 }
 t1.innerText=document.anchors.length;
 //  t1.innerText=document.links.length;
+
 

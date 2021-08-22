@@ -88,23 +88,23 @@ Quantifiers  (*, +, ?, x{n}, x{n,}, x{n,m})
              \u0009 is the same as \t
 39- \cX   The control character ^X; for example, \cJ is equivalent to the newline character\n
 
-___________
+_______
 
 Metacharacters (Character classes)
 A metacharacter is simply an alphabetical character preceded by 
 a backslash that acts to give the combination a special meaning
 
-__________
+______
 
 40- \s   a whitespace character (space, tab, newline)
 41- \S   non-whitespace character
 42- \d   a digit (0-9)
 43- \D   a non-digit
-44- \w   a word character (a-z, A-Z, 0-9, _)
+44- \w   a word character (a-z, A-Z, 0-9,_)
 45- \W   a non-word character
-46- [\b] Matches  a literal backspace (special case).
-47- \0  The NUL character (\u0000)
-48- \t   horizontal Tab (\u0009
+46- [\b] Matches a literal backspace (special case).
+47- \0  The NULL character (\u0000)
+48- \t   horizontal Tab (\u0009)
 49- \n  Newline (\u000A)
 50- \v  Vertical tab (\u000B)
 51- \f  Form feed (\u000C)
