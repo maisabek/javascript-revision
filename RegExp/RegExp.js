@@ -5,15 +5,14 @@ are patterns used to match character combinations in strings.
 In JavaScript,regular expressions are also objects that describes a pattern of characters
 
 These patterns are used with the exec() and test() methods of RegExp, 
-and with the match(), matchAll(), replace(), replaceAll(), search(), and split() 
-methods of String.
+and with the match(), matchAll(), replace(), replaceAll(), search(), and split() methods of String
 
 use regular expressions to perform powerful 
 pattern-matching and search-and-replace functions on text.
 
 Creating a regular expression ?
-You construct a regular expression in one of two ways
 
+You construct a regular expression in one of two ways
 1- Using a regular expression literal, which consists of a pattern enclosed between slashes
  as follows:
   
@@ -147,28 +146,32 @@ ___________
 
 
 50- i ==>  Perform case-insensitive matching.
+small مش شرط يكون  كابتل ولا 
 
 const regex1 = new RegExp('foo');
 const regex2 = new RegExp('foo', 'i');
 
 console.log(regex1.test('Football')); // false
 console.log(regex2.test('FoOtball')); //true
+console.log(/D/.test('please Do this now')) //true
+console.log(/d/.test('please Do this now')) //false
 
 ______
 
 51- m ==>  	Multi-line search
+بيبحث فى اكتر من سطر
 
 const regex1 = new RegExp('^football');
 const regex2 = new RegExp('^football', 'm');
 
 console.log(regex1.test('rugby\nfootball'));  false
-
 console.log(regex2.test('rugby\nfootball'));  true
 
 ______
 
 52- g ==>  Performs a global match 
 matches بيبحث فى الاسترنج كلة وبيرجع كل ال 
+
 The "g" after the regular expression is an option or flag that performs a global search,
 looking in the whole string and returning all matches
 
@@ -197,10 +200,10 @@ ________
 
 53- s ==>  Allows . to match newline characters.
 
-const regex1 = new RegExp('foo', 's');
+const regex1 = new RegExp('foo', 's')
 console.log(regex1.dotAll)  true
 
-const regex2 = new RegExp('bar');
+const regex2 = new RegExp('bar')
 console.log(regex2.dotAll)  false
 
 exp2:
@@ -209,7 +212,7 @@ var str1 = 'bar\nexample foo example';
 var regex1 = new RegExp('bar.example','s');
 console.log(str1.replace(regex1,'')); // Output: foo example
 
-var str2 = 'bar\nexample foo example';
+var str2 = 'bar\nexample foo example'
 var regex2 = new RegExp('bar.example');
 console.log(str2.replace(regex2,'')); // Output: bar
                                       //         example foo example
@@ -232,7 +235,7 @@ _________
 
 55- y ==>   
 Perform a "sticky" search that matches starting at the current position
-in the target string. See sticky.
+in the target string.See sticky.
 
 const str1 = 'table football';
 const regex1 = new RegExp('foo', 'y');
@@ -245,10 +248,10 @@ console.log(regex1.test(str1))  true فرجع ترو foo لاقى
 
 console.log(regex1.test(str1)) false تانية فرجع فالس foo ملاقش 
 
-_________
+________
 
  56- d  ==> Generate indices for substring matches
-
+اللى عمل ماتش string بترجع الاندكس بتاع ال 
 const str1 = 'foo bar foo';
 const regex1 = new RegExp('foo', 'gd');
 console.log(regex1.hasIndices); // Output: true
@@ -271,7 +274,7 @@ _________
 it returns a reference to the array function that created the instance's prototype
  <script type = "text/javascript">
   // Returns the function that created this object's instance.
-    var re = new RegExp( "string" ); 
+    var re = new RegExp("string"); 
     document.write("re.constructor is:" + re.constructor); 
  </script>
 
@@ -347,7 +350,7 @@ __________
 
 56- RegExp lastIndex Property
 lastIndex 
-ولازم global يكون  RegExp بيرجع اخر اندكس ل استرنج اللى هتعمل ماتش وبيبدء عد من الوحد ولازم  
+ولازم global يكون RegExp بيرجع اخر اندكس ل استرنج اللى هتعمل ماتش وبيبدء عد من الوحد ولازم  
 test() or exec() ينفذ الفنكشن 
 
 a read/write property of RegExp objects. For regular expressions with the "g" attribute set
@@ -362,17 +365,15 @@ This property is read/write, so you can set it at any time to specify where in t
 string, the next search should begin. exec() and test() automatically reset the lastIndex
 to 0 when they fail to find a match (or another match)
 
-Returns an integer that specifies the character position immediately following the last 
-match.
-
+Returns an integer that specifies the character position immediately following the last match.
      <script type = "text/javascript">
          var str = "Javascript is an interesting scripting language";
          var re = new RegExp( "script", "g" );
          
-         re.test(str);
-         document.write("Test 1 - Current Index: " +  re.lastIndex); 
-         
-         re.test(str);
+         re.test(str)
+         document.write("Test 1 - Current Index: " +  re.lastIndex)
+
+         re.test(str)
          document.write("<br />Test 2 - Current Index: " + re.lastIndex); 
       </script>
 
@@ -453,8 +454,7 @@ If it finds a match, it returns an array of results; otherwise, it returns null
          var result = re.exec(str);
          document.write("Test 1 - returned value : " +  result); 
          
-         re = new RegExp( "pushing", "g" );
-         
+         re = new RegExp( "pushing", "g" )
          var result = re.exec(str);
          document.write("<br />Test 2 - returned value : " +  result); 
 </script>
@@ -641,10 +641,12 @@ console.log(strCopy);
 _________
 
 Capturing groups
-A part of a pattern can be enclosed in parentheses (...). This is called a “capturing group”.
+ () جو ال pattern جزء من ال 
+  قبل الاقواس بيطبق على كل اللى فى القوس quantifier ولو حط 
+  result array فى ال separate item ك match بيسمح ان اجيب جزء من ال 
+ A part of a pattern can be enclosed in parentheses (...). This is called a “capturing group”.
 
 That has two effects:
-
 1- It allows to get a part of the match as a separate item in the result array.
 2- If we put a quantifier after the parentheses, it applies to the parentheses as a whole.
 
@@ -724,12 +726,10 @@ output:
 
 Named capturing group: 
 Matches "x" and stores it on the groups property of the returned matches under 
-the name specified by <Name>. The angle brackets (< and >) are 
-required for group name.
+the name specified by <Name>. The angle brackets (< and >) are  required for group name.
 
 For example,to extract the United States area code from a phone number, 
-we could use /\((?<area>\d\d\d)\)/. The resulting number would appear under 
-matches.groups.area
+we could use /\((?<area>\d\d\d)\)/. The resulting number would appear under matches.groups.area
 
 _______
 

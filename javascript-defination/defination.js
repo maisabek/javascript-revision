@@ -1,4 +1,5 @@
 /*
+
 What is JavaScript?
 
 JavaScript is a client-side and server-side (nodejs) scripting language inserted into HTML pages 
@@ -7,7 +8,133 @@ and is understood by web browsers. JavaScript is also an Object-based Programmin
 single thread programming ==> بتعمل حاجة واحدة فى وقت معين
 
 _______
+Tips for Improving JavaScript Performance ?
 
+1-  Avoid using global variables
+Because the scripting engine needs to look through the scope when referencing global 
+variables from within function or another scope, the variable will be destroyed when 
+the local scope is lost. If variables in the global scope can not persist through the 
+lifetime of the script, the performance will be improved
+
+2-Use web workers when you need to execute code that needs a lot of execution time
+According to the Mozilla Developers Network (MDN) documentation: “Web Workers makes it possible
+ to run a script operation in a background thread separate from the main execution thread 
+ of a web application. The advantage of this is that laborious processing can be performed 
+in a separate thread, 
+allowing the main (usually the UI) thread to run without being blocked/slowed down.”
+
+3-   Avoid using too much memory
+You should always try to limit memory use to what is absolutely necessary, because is not 
+possible to know how much memory is required by the device being used to run your app.
+ Any time your code requests that the browser reserve new memory, the browser’s garbage 
+ collector is executed, and JavaScript is stopped. If this happens frequently, the page 
+ will work slowly
+
+4-Minimize DOM access
+Interaction of host browser with objects (DOM) that takes place outside the JavaScript native 
+environment results in a significant amount of performance lag and unpredictability. 
+This happens since browser has to refresh every time. To avoid this, you can simply
+ minimize the access of DOM. There are a few ways by which you achieve this. 
+ For example, you can store references to the browser objects or you can decrease 
+ the overall DOM traversal trips
+
+5-    Use tools to detect problems
+Lighthouse ( is an open-source, automated tool for improving the quality of web pages.) 
+is a good performance tool for web pages, it helps you to audit performance, 
+accessibility, best practices, and SEO. Google PageSpeed is designed to help developers 
+understand a website’s performance optimizations and areas for potential improvement. 
+The components are built to identify faults in a website’s compliance with Google’s Web 
+Performance Best Practices, as well as automate the adjustment process.
+
+In Chrome you can also use, the More Tools option in the main menu to see the memory and 
+the CPU used by each tab. For even more advanced analysis, you can use the developer tools
+ Performance view in either Firefox or Chrome to analyze different metrics
+ For example
+The performance analysis of devtools allows you to simulate CPU consumption,
+ network, and other metrics while the page is being loaded, so you can identify 
+ and fix problems.
+
+6-Avoid unwanted loops
+Looping in JavaScript is not considered as a good thing since it puts extra strain on the 
+browser. It’s important to note that you do less work in the loop. The lesser work you do 
+in the loop the faster it will make your loop. Moreover, there are some simple tricks, 
+one of which is of storing an array’s length in a different variable instead of reading
+ the length at each iteration of the loop. 
+This could go a long way to optimize your code and run things in a more efficient manner.
+
+7-Boost performance by caching object
+You can do this in two ways. The first is to use the HTTP protocol cache. 
+And the second is to use JavaScript Cache API, which can be done with service worker 
+installation. Generally, scripts are used for accessing certain objects. 
+You can achieve significant improvement in performance by using a variable in 
+references to that object or by simply storing the repeated access object inside the 
+user-defined variable
+______
+SEO (Search Engine Optimization)
+عشان اخلى الموقع بتاعى يتصدر محركات البحث
+_____
+
+types of api?
+1- app cache
+ولو دخلت عليةonline يعنى ادخل مرة علية وانا  offline browsing ان الابلكشن بيشتغل حتى لو  
+بيشتغل offline تانى وانا
+بتتحمل اسرع cached resourceفال speed وبتكون
+server load وممكن نحتاج نتواصل مع السرفير فدا بيقلل ال  
+
+To enable application cache, include the manifest attribute in the document's <html> tag:
+<html manifest="demo.appcache"></html>
+Every page with the manifest attribute specified will be cached when the user visits it.
+ If the manifest attribute is not specified, the page will not be cached 
+ (unless the page is specified directly in the manifest file)
+
+The manifest file is a simple text file, which tells the browser what to cache 
+(and what to never cache).
+  
+2- web workers
+A web worker is a JavaScript that runs in the background, 
+independently of other scripts, without affecting the performance of the page
+You can continue to do whatever you want: clicking, selecting things, etc.,
+while the web worker runs in the background.
+background وبيخلى الاسكربت دة يشتغل فى  html اسكربت يعمل فى صفحة 
+يعنى لو عملت اى حاجة فى الصفحة الاسكربت بيفضل شغال 
+<script>
+var w;
+function startWorker() {
+    if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+            w = new Worker("demo_workers.js");
+        }
+        w.onmessage = function(event) {
+            document.getElementById("result").innerHTML = event.data;
+        };
+    } else {
+        document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+    }
+  }
+function stopWorker() {
+    w.terminate();
+    w = undefined;
+}
+</script>
+
+3- SSE (Server-Sent Events )
+event automatically سرفير بيبعت 
+A server-sent event is when a web page automatically gets updates from a server.
+بالوقت جديد update هنا السرفير هيبعت كل 3 ثوانى  
+var source = new EventSource("demo_sse.php");
+source.onmessage = function(event) {
+    document.getElementById("result").innerHTML += event.data + "<br>";
+}
+
+<?php
+header('Content-Type: text/event-stream');
+header('Cache-Control: no-cache');
+
+$time = date('r')
+echo "data: The server time is: {$time}\n\n"
+flush();
+?>
+_____
 Is JavaScript an object oriented language or not ?
 
 To be more precise, JavaScript is a prototype based object oriented language,
@@ -34,6 +161,39 @@ function User(name) {
 
 // Prototype  كل ما بعمل فنكشن جديدة فى ديفلت فنكشن بتتنشأ للفنكشن دى اللى هى ال
 _______
+
+difference between get and post and PUT  ?
+
+GET :
+You can use this method only to retrieve data from the address bar in the browser.
+GET requests can be cached
+GET requests remain in the browser history
+GET requests can be bookmarked
+GET requests should never be used when dealing with sensitive data
+GET requests have length restrictions
+GET requests are only used to request data (not modify
+
+POST :  
+Data passed using the POST method will not visible in query parameters in browser URL.
+POST requests are never cached
+POST requests do not remain in the browser history
+POST requests cannot be bookmarked
+POST requests have no restrictions on data length
+
+PUT :
+PUT is used to send data to a server to create/update a resource.
+The difference between POST and PUT is that 
+PUT requests are idempotent. That is, calling the same PUT request multiple times will
+always produce the same result. In contrast,
+calling a POST request repeatedly have side effects of creating 
+the same resource multiple times.
+
+DELETE :
+DELETE method deletes the specified resource.
+
+The OPTIONS method describes the communication options for the target resource.
+ 
+________
 
 What is OOPS Concept in JavaScript?
 
