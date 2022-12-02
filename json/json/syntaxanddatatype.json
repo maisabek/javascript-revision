@@ -1,0 +1,28 @@
+
+{
+    "ip": "197.42.175.237",
+    "city": "Cairo",
+    "region": "Cairo Governorate",
+    "region_code": "C",
+    "country": "EG",
+    "country_code": "EG",
+    "country_code_iso3": "EGY",
+    "country_capital": "Cairo",
+    "country_tld": ".eg",
+    "country_name": "Egypt",
+    "continent_code": "AF",
+    "in_eu": false,
+    "postal": null,
+    "latitude": 30.0778,
+    "longitude": 31.2852,
+    "timezone": "Africa/Cairo",
+    "utc_offset": "+0200",
+    "country_calling_code": "+20",
+    "currency": "EGP",
+    "currency_name": "Pound",
+    "languages": "ar-EG,en,fr",
+    "country_area": 1001450.0,
+    "country_population": 80471869.0,
+    "asn": "AS8452",
+    "org": "TE-AS"
+}

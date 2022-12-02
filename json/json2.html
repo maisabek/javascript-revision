@@ -1,0 +1,16 @@
+<html>
+<head>
+</head>
+<body>
+    <div id="data">
+        <div id="name"></div>
+        <div id="age"></div>
+    </div>
+    <script>
+         let myjsonobject='{"name":"mai","age":34}'; 
+         let myjavascriptobject=JSON.parse(myjsonobject);
+         document.getElementById("name").innerHTML='my name is'+myjavascriptobject.name;
+         document.getElementById("age").innerHTML='my age is'+myjavascriptobject.age;
+    </script>
+    </body>
+    </html>
