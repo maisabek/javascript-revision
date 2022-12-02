@@ -7,23 +7,110 @@ and is understood by web browsers. JavaScript is also an Object-based Programmin
 مش لوحدهم يكفوا لكدة html ,css لان web page  على  actions , events باستخدمها بحيث اعمل من خلالها  
 single thread programming ==> بتعمل حاجة واحدة فى وقت معين
 
+______
+Advantages of JavaScript ?
+
+1. Speed
+
+Since JavaScript is an ‘interpreted’ language, it reduces the time required by other programming
+languages like Java for compilation. JavaScript is also a client-side script, speeding up the
+execution of the program as it saves the time required to connect to the server.
+
+2. Simplicity
+JavaScript is easy to understand and learn. The structure is simple for the users as well as
+the developers. It is also very feasible to implement, saving developers a lot of money for 
+developing dynamic content for the web.
+
+3. Popularity
+Since all modern browsers support JavaScript, it is seen almost everywhere. All the famous 
+companies use JavaScript as a tool including Google, Amazon, PayPal, etc.
+
+4. Interoperability (التوفقية)
+JavaScript works perfect with other programming languages and therefore numerous developers 
+prefer it in developing many applications.We can embed it into any webpage or inside the script
+of another programming language.
+
+5. Versatility
+JavaScript is now capable of front-end as well as back-end development. Back-end development uses 
+NodeJS while many libraries help in front-end development like AngularJS, ReactJS, etc.
+
+6. Less Overhead
+JavaScript improves the performance of websites and web applications by reducing the code length. The codes contain less overhead with the use of various built-in functions for loops, DOM access, etc.
+
+7. Server Load
+As JavaScript operates on the client-side, data validation is possible on the browser itself
+rather than sending it off to the server. In case of any discrepancy, the whole website needs 
+not to be reloaded. The browser updates only the selected segment of the page.
+
+8. Rich Interfaces
+JavaScript provides various interfaces to developers for creating catchy webpages. Drag and drop
+components or sliders may give a rich interface to the webpages. This leads to improved 
+user-interactivity on the webpage.
+
+9. Extended Functionality
+Third-party add-ons like Greasemonkey (a Mozilla Firefox extension) allow the developers to add 
+snippets of predefined code in their code to save time and money. These add-ons help the 
+developers build JavaScript applications a lot faster and with much more ease than other 
+programming languages.
+
+
+______
+
+Disadvantages of JavaScript ?
+
+1. Client-side Security
+Since the JavaScript code is viewable to the user, others may use it for malicious purposes.
+These practices may include using the source code without authentication. Also, it is very easy
+to place some code into the site that compromises the security of data over the website.
+
+2-  Browser Support
+The browser interprets JavaScript differently in different browsers. Thus, 
+the code must be run on various platforms before publishing. The older browsers don’t 
+support some new functions and we need to check them as well
+
+3- Single Inheritance
+JavaScript only supports single inheritance and not multiple inheritance. 
+Some programs may require this object-oriented language characteristic
+
+4- Lack of Debugging Facility
+Though some HTML editors support debugging, it is not as efficient as other editors like
+C/C++ editors. Also, as the browser doesn’t show any error, it is difficult for the developer 
+to detect the problem
+
+5. Sluggish Bitwise Function
+JavaScript stores a number as a 64-bit floating-point number and operators operate on 32-bit
+bitwise operands. Thus, JavaScript converts the number to 32-bits signed integers, operates on
+them and converts them back to 64-bits JavaScript numbers. This continuous conversion takes more
+time in conversion of number to an integer. This increases the time needed to run the script and 
+reduces its speed.
+
+6. Rendering Stopped
+A single code error can stop the rendering of the entire JavaScript code on the website.
+To the user, it looks as if JavaScript was not present. However, the browsers are extremely 
+tolerant of these errors.
 _______
+
 Tips for Improving JavaScript Performance ?
 
 1-  Avoid using global variables
 Because the scripting engine needs to look through the scope when referencing global 
-variables from within function or another scope, the variable will be destroyed when 
-the local scope is lost. If variables in the global scope can not persist through the 
-lifetime of the script, the performance will be improved
+variables from within function or another scope, 
+the variable will be destroyed when the local scope is lost. 
+If variables in the global scope can not persist through the lifetime of the script,
+the performance will be improved
 
 2-Use web workers when you need to execute code that needs a lot of execution time
 According to the Mozilla Developers Network (MDN) documentation: “Web Workers makes it possible
  to run a script operation in a background thread separate from the main execution thread 
- of a web application. The advantage of this is that laborious processing can be performed 
-in a separate thread, 
+ of a web application. 
+The advantage of this is that laborious processing can be performed in a separate thread, 
 allowing the main (usually the UI) thread to run without being blocked/slowed down.”
 
-3-   Avoid using too much memory
+3-Avoid using too much memory
+ هتحقق دة big o فهحتاج اشوف اى complex time , memory size اهتم بال 
+فى شكل داتا crud operation وتخزين الداتا هتحتاج تختار اى استركشر معين يحقق هدفك زى 
+مع الوقت يكون تكلفة صيانتة project scale بحيث تقدر توصل عشان لو ال design pattern  وهحتاج اى
+اقل
 You should always try to limit memory use to what is absolutely necessary, because is not 
 possible to know how much memory is required by the device being used to run your app.
  Any time your code requests that the browser reserve new memory, the browser’s garbage 
@@ -34,11 +121,11 @@ possible to know how much memory is required by the device being used to run you
 Interaction of host browser with objects (DOM) that takes place outside the JavaScript native 
 environment results in a significant amount of performance lag and unpredictability. 
 This happens since browser has to refresh every time. To avoid this, you can simply
- minimize the access of DOM. There are a few ways by which you achieve this. 
- For example, you can store references to the browser objects or you can decrease 
- the overall DOM traversal trips
+minimize the access of DOM. There are a few ways by which you achieve this. 
+For example, you can store references to the browser objects or you can decrease 
+the overall DOM traversal trips
 
-5-    Use tools to detect problems
+5-Use tools to detect problems
 Lighthouse ( is an open-source, automated tool for improving the quality of web pages.) 
 is a good performance tool for web pages, it helps you to audit performance, 
 accessibility, best practices, and SEO. Google PageSpeed is designed to help developers 
@@ -51,8 +138,8 @@ the CPU used by each tab. For even more advanced analysis, you can use the devel
  Performance view in either Firefox or Chrome to analyze different metrics
  For example
 The performance analysis of devtools allows you to simulate CPU consumption,
- network, and other metrics while the page is being loaded, so you can identify 
- and fix problems.
+network, and other metrics while the page is being loaded, so you can identify 
+and fix problems.
 
 6-Avoid unwanted loops
 Looping in JavaScript is not considered as a good thing since it puts extra strain on the 
@@ -95,22 +182,27 @@ A web worker is a JavaScript that runs in the background,
 independently of other scripts, without affecting the performance of the page
 You can continue to do whatever you want: clicking, selecting things, etc.,
 while the web worker runs in the background.
+
 background وبيخلى الاسكربت دة يشتغل فى  html اسكربت يعمل فى صفحة 
 يعنى لو عملت اى حاجة فى الصفحة الاسكربت بيفضل شغال 
+
+
 <script>
 var w;
 function startWorker() {
-    if(typeof(Worker) !== "undefined") {
-        if(typeof(w) == "undefined") {
-            w = new Worker("demo_workers.js");
-        }
-        w.onmessage = function(event) {
-            document.getElementById("result").innerHTML = event.data;
-        };
-    } else {
-        document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
-    }
-  }
+     var first=document.getElementById("myInp1")
+        var second=document.getElementById("myInp2")
+        var myWorker = new Worker('defination.js');
+
+    first.onchange = function() {
+  myWorker.postMessage([first.value, second.value]);
+  console.log('Message posted to worker');
+}
+
+second.onchange = function() {
+  myWorker.postMessage([first.value, second.value]);
+  console.log('Message posted to worker');
+}
 function stopWorker() {
     w.terminate();
     w = undefined;
@@ -120,6 +212,7 @@ function stopWorker() {
 3- SSE (Server-Sent Events )
 event automatically سرفير بيبعت 
 A server-sent event is when a web page automatically gets updates from a server.
+
 بالوقت جديد update هنا السرفير هيبعت كل 3 ثوانى  
 var source = new EventSource("demo_sse.php");
 source.onmessage = function(event) {
@@ -132,7 +225,7 @@ header('Cache-Control: no-cache');
 
 $time = date('r')
 echo "data: The server time is: {$time}\n\n"
-flush();
+flush()
 ?>
 _____
 Is JavaScript an object oriented language or not ?
@@ -182,6 +275,7 @@ POST requests have no restrictions on data length
 
 PUT :
 PUT is used to send data to a server to create/update a resource.
+
 The difference between POST and PUT is that 
 PUT requests are idempotent. That is, calling the same PUT request multiple times will
 always produce the same result. In contrast,
@@ -346,6 +440,7 @@ __________
 What is the difference between ViewState and SessionState ?
 
 'ViewState'
+بتخزن معلومات اقدر اعملها اكسس فى نفس البايج
 It can be used to store information that you wish to access from same web page
  is specific to a page in a session.
  View state can only be visible from a single page and not multiple pages.
@@ -363,6 +458,7 @@ It can be used to store information that you wish to access from same web page
  protected void Page_Load(object sender, EventArgs e){
     ViewState["Message"] = "Hello Mudassar";
  }
+
 <head runat="server">
  <script type="text/javascript">
         var message = '<%=ViewState["Message"].ToString() %>';
@@ -373,7 +469,7 @@ It can be used to store information that you wish to access from same web page
 ___
 
 SessionState 
-
+   بتخزن معلومات اقدر اعملها اكسس فى اكتر من البايج
  It can be used to store information that you wish to access on different web pages.
  SessionState is the data of a user session and is maintained on the server side.
  This data available until user closes the browser or session time-outs
@@ -476,7 +572,7 @@ To convert numeric strings and boolean values to numbers, you can use Number().
 For example
 let result;
 // string to number
-result = Number('324');
+result = Number('324')
 console.log(result); // 324
 result = Number('324e-1')  
 console.log(result); // 32.4
@@ -531,8 +627,8 @@ console.log(result); // "324"
 result = true.toString();
 console.log(result); // "true"
 
-Note: String() takes null and undefined and converts them to string. However, toString()
-gives error when null are passed.
+Note: String() takes null and undefined and converts them to string. However,
+toString() gives error when null are passed.
 
 Convert to Boolean Explicitly
 you can use Boolean().
@@ -745,11 +841,10 @@ function func1(){
     }
   }
 }
-
 _______
+
 How closures work in JavaScript?
-  لو عندى فنكشن والفنكشن دى بترجع فنكشن
-  المتغير اللى بخزن فية الفنكشن دى
+  
 The closure is a locally declared variable related to a function that stays in memory 
 when it has returned.
 
@@ -763,17 +858,20 @@ function greeter(name, age) {
 var JamesGreeter = greeter("James", 23)
 // Use the closure
 JamesGreeter()
+
 _________
+
 What are the disadvantages of using innerHTML in JavaScript?
 
-If you use innerHTML in JavaScript, the disadvantage is
-Content is replaced everywhere
+1- The innerHTML does not provide validation, and therefore we can potentially insert valid 
+and broken HTML in the document and break it
+
+2- If you use innerHTML in JavaScript
+the disadvantage is Content is replaced everywhere
 We cannot use it like "appending to innerHTML
 Even if you use +=like "innerHTML = innerHTML + 'html'" still the old content is replaced
 by html
 The entire innerHTML content is re-parsed and builds into elements. Therefore, it's much slower
-The innerHTML does not provide validation, and therefore we can potentially insert valid 
-and broken HTML in the document and break it
 
 _______
 
@@ -823,6 +921,7 @@ There are three types of errors:
 1- Load time errors
 
 وال syntax errors الاخطاء اللى بتظهر عند تحميل صفحة الويب زى ال 
+
 Errors that come up when loading a web page, like improper syntax errors, 
 are known as Load time errors and generate the errors dynamically
 
@@ -967,6 +1066,7 @@ _________
 What is a window.onload and onDocumentReady?
 
 “window.onload” 
+images , objects زى ال resources يحمل الدوم وكل ال browser بينفذ الكود لما ال
 1- will execute code when browser has loaded the DOM tree and 
 all other resources like images, objects, etc.
 
@@ -975,8 +1075,8 @@ window.onload= function(){ //بعد ما تعمل لوود للصفحة نفذ �
 document.getElementById("test").innerHTML="ooofff";
 }
 
-onDocumentReady   
-مباشرة DOM يقوم بتحميل الكود بعد تحميل
+onDocumentReady 
+  images , objects زى ال resources يحمل الدوم بدون ما ينتظر ال browser بينفذ الكود لما ال
 1- executes when the DOM tree is built, 
 without waiting for other resources to load. 
 This allows executing the code against the DOM faster with onDocumentReady.
@@ -990,7 +1090,7 @@ arr[arr.length] = value
 _________
 
 What is event bubbling?
-
+ بتوعة parent وعملت ايفنت على اتشيلد كأنى عملتة على ال element جو element لما يبقى عندى 
 JavaScript allows DOM elements to be nested inside each other. 
 In such a case, if the handler of the child is clicked, 
 the handler of the parent will also work as if it were clicked too
@@ -1032,10 +1132,12 @@ _________
 
 Write the point of difference between a web garden and a web farm?
 
-Both web-garden and web-farm are web hosting systems. 
-The only difference is that 
+Both web-garden and web-farm are web hosting systems. The only difference is that 
 
-web-garden is a setup that includes many processors in a single server.
+web-garden 
+اللى بترن processes بتحتوى على سرفير واحد ايا كان عدد ال 
+ less amount of physical space وبتتطلب 
+is a setup that includes many processors in a single server.
 Web Garden consists of a single server on which any number of processes can be run
 This provides logical scalability to web applications
 Web Garden requires less amount of physical space
@@ -1043,7 +1145,11 @@ It needs a Machine.Configfile to group together multiple web servers
 A Web Garden is achieved by enabling multiple worker processes for single application pool.
 It provides better application availability compare to Web Farm
 
-web-farm is a larger setup that uses more than one server
+web-farm 
+بتحتوى على اكتر من سرفير بتقدر ترن على اكتر من سرفير 
+cases فى بعض ال performance وبتساعد ان احسن ال 
+Web Garden مقارنة بال high availability وبتوفر 
+is a larger setup that uses more than one server
 Web Farm has the ability to runs across multiple servers.
 This provides physical scalability to web applications
 Web Farm helps to improve performance in some cases
@@ -1065,8 +1171,7 @@ _________
 What is the method for reading and writing a file in JavaScript?
 
 There are two ways to do it:
-1-  Using JavaScript extensions (runs from JavaScript Editor), 
-    example,
+1-  Using JavaScript extensions (runs from JavaScript Editor),example
 
     file = fopen(getScriptPath(), 0)  // to open a file 
     str = fread(file,flength(file);  //  fread() is used for reading the file content.
@@ -1084,13 +1189,20 @@ ________
 
 How are DOM utilized in JavaScript?
 (dom = programming interface for html,xml)
-DOM stands for Document Object Model and is responsible for how various objects in 
-a document interact with each other. 
+DOM (Document Object Model) 
+is responsible for how various objects in a document interact with each other. 
 DOM is required for developing web pages, which includes objects like paragraphs, 
 links, etc. These objects can be operated to include 
-actions like add or delete. DOM is also required to add extra capabilities to a web page. 
-On top of that, the use of API gives an advantage over other existing models.
+actions like add or delete.
+DOM is also required to add extra capabilities to a web page. On top of that,
+the use of API gives an advantage over other existing models.
 _____
+
+What is DOM in JavaScript?
+JavaScript can access all the elements in a web page using the Document Object Model (DOM).
+The web browser creates a DOM of the webpage when the page is loaded
+    
+______
 
 Bom => Browser object model
 // بتتعامل مع البروزير والاكشن بيتعامل مع البروزير ملوش علاقة بالصفحة
@@ -1099,16 +1211,22 @@ _______
 
 How are event handlers utilized in JavaScript?
 
-Events are the actions that result from activities, such as clicking a link or
- filling a form by the user.
-  An event handler is required to manage the proper execution of all these events. 
-  Event handlers are an extra attribute of the object. 
+Events 
+are the actions that result from activities, such as clicking a link or
+filling a form by the user
+commom HTML events: (onchange,onclick,onmouseover,onmouseout,onkeydown,onload)
+
+An event handler
+is required to manage the proper execution of all these events. 
+Event handlers are an extra attribute of the object. 
 This attribute includes the event's name and the action taken if the event takes place
 
 _______
 
 What is the role of deferred scripts in JavaScript?
-head يعنى كأن حط الاسكربت دة فى الاخر مش فى ال html ينفذ الاسكربت وال  head جو ال scripts لما يعمل 
+document لل parse ينفذ الاسكربت بعد ما يعمل head جو ال scripts لما يعمل 
+head يعنى كأن حط الاسكربت دة فى الاخر مش فى ال 
+
 The defer is a Boolean value, 
 used to indicate that script is executed after the document has been parsed. 
 It works only with external scripts (i.e., works only when we are 
@@ -1142,7 +1260,7 @@ What are the various functional components in JavaScript?
 
 The different functional components in JavaScript are-
 
-First-class functions: 
+1- First-class functions: 
 Functions in JavaScript are utilized as first-class objects.
 This usually means that these functions can be passed as arguments to other functions, 
 returned as values from other functions,
@@ -1156,11 +1274,10 @@ const Arithmetics = {
         return `${a} - ${b} = ${a-b}`
     }
 }
-
 console.log(Arithmetics.add(100, 100));
 console.log(Arithmetics.subtract(100, 7));
 
-Nested functions (Higher-Order Function): 
+2- Nested functions (Higher-Order Function): 
 The functions, which are defined inside other functions, are called Nested functions. 
 They are called 'every time the main function is invoked
 
@@ -1215,7 +1332,7 @@ _______
 What is namespacing in JavaScript, and how is it used?
 
 Namespacing is used for grouping the desired functions, variables, etc.,
-under a unique name. It is a name that has been attached to the desired functions, 
+under a unique name.It is a name that has been attached to the desired functions, 
 objects, and properties. This improves modularity in the coding and enables code reuse
 
 var <namespace> = {} // To initialise an empty namespace
@@ -1229,7 +1346,7 @@ var car = {
 }
 var bike = {
     startEngine: function () {
-        console.log("Bike started");
+        console.log("Bike started")
     }
 }
 car.startEngine();
@@ -1258,8 +1375,14 @@ _____
 
 What is JavaScript Unit Testing ?
 
+a web page  بستخدمها عشان اعمل بيها تيست على كود لل testing method عبارة عن 
+ functionalities work fine عشان يتأكد ان كل ال 
+separate module عشان تتنفذ  several tests بتحتوى على suite كل test suite بتكون منظمة فى 
+
+
 JavaScript Unit Testing is a testing method in which JavaScript tests code written for 
 a web page or web application module. 
+
 It is combined with HTML as an inline event handler and executed in the browser 
 to test if all functionalities work fine. 
 
@@ -1270,16 +1393,24 @@ on each other (some critical situations may cause dependencies).
 
 npm install --save-dev jest
 
-function sum (a, b) {
-  return a + b
+ // subtraction_spec.js
+var expect = require('chai').expect
+
+describe('subtraction', function () {
+  var subtraction = require('../WHEREVER')  
+  it('only works with numbers', function () {
+   expect(subtraction("A","B").to.throw("subtraction only works with numbers!");
+  })
+})
+
+//subtraction.js
+function subtraction (number1, number2) {
+  if (typeof number1 !== 'number' || typeof number2 !== 'number') {
+    throw Error('subtraction only works with numbers!')
+  }
+  return number1 - number2
 }
 
-module.exports = sum
-const sum = require('./sum')
-
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3)
-})
 
 Finally, run yarn test or npm run test
 _______
@@ -1310,7 +1441,6 @@ These vulnerabilities come under Unit Testing JavaScript
 _____
 
 Solutions of JavaScript Unit Testing:
-
 To avoid such issues, what you can do is;
 
 1- Do not use global variables.
@@ -1319,6 +1449,40 @@ To avoid such issues, what you can do is;
 4- Try to create small pieces of functionalities with lesser dependencies.
 
 ______
+
+The predefined core objects
+can be used in either client-side or server-side scripts 
+are Array , Boolean , Date , Function , Math , Number , RegExp , and String 
+
+_______
+
+Why is embedded JavaScript used?
+user events بتجيب على  HTML ان ال 
+
+Client-side JavaScript statements embedded in an HTML page can respond to user events such as 
+mouse-clicks, form input, and page navigation
+For example, you can write a JavaScript function to verify that users enter valid information
+into a form requesting a telephone number or zipcode
+
+_______
+
+global functions:
+
+directly return their results to the caller.
+eval()  - uneval() - isFinite() - isNaN() - parseFloat()
+parseInt() - encodeURI() - encodeURIComponent()
+
+________
+
+What is the core of JavaScript?
+
+Core JavaScript 
+is the basic of the JavaScript language supports both the client and server side
+client-side JavaScript has core JavaScript elements. For functioning, it also has properties
+and methods ,which helps developers
+Server-side JavaScript, as the name suggests runs on server-side
+
+________
 
 What are some important JavaScript Unit Testing Frameworks?
 
@@ -1350,15 +1514,14 @@ Mocha runs on Node.js and in the browser. Mocha performs asynchronous testing mo
 Provides accuracy and flexibility in reporting. 
 Provides tremendous support of rich features such as test-specific timeouts, JavaScript APIs.
 
-6- Jest: 
+6- Jest
 Facebook uses jest so far to test all the JavaScript code.
 It provides the 'zero-configuration testing experience. 
 Supports independent and non-interrupting running tests without any conflict. 
 Do not require any other setup configuration and libraries.
 
-7- AVA: 
-AVA is a simple JavaScript Unit Testing Framework. 
-Tests are being run in parallel and serially. 
+7- AVA
+AVA is a simple JavaScript Unit Testing Framework.Tests are being run in parallel and serially. 
 Parallel tests run without interrupting each other. 
 This testing framework supports asynchronous testing as well. 
 AVA uses subprocesses to run the unit test JavaScript.
@@ -1397,33 +1560,26 @@ What is QuickSort Algorithm in JavaScript?
      since 6=6
      move pointers further and stop as left crosses right
 
-    _____
-     What are Screen objects?
+________
 
-     Screen objects are used to read the information from the client's screen. 
-     The properties of screen objects are
+What are Screen objects?
 
-      AvailHeight: Gives the height of the client's screen
-      AvailWidth: Gives the width of the client's screen
-      ColorDepth: Gives the bit depth of images on the client's screen
-      Height: Gives the total height of the client's screen, including the taskbar
-      Width: Gives the total width of the client's screen, including the taskbar
-    ______
+Screen objects are used to holds information of browser screen. 
+The navigator object is the window property, so it can be accessed by:window.screen  Or screen
 
-    What is DOM in JavaScript?
-    JavaScript can access all the elements in a web page using the Document Object Model (DOM).
-    The web browser creates a DOM of the webpage when the page is loaded
-    
-    ______
+The properties of screen objects are  
+document.writeln("<br/>screen.width: "+screen.width) //Gives the total width of the client's screen, including the taskbar
+document.writeln("<br/>screen.height: "+screen.height) //Gives the total height of the client's screen, including the taskbar  
+document.writeln("<br/>screen.availWidth: "+screen.availWidth); Gives the width of the client's screen 
+document.writeln("<br/>screen.availHeight: "+screen.availHeight) //Gives the height of the client's screen 
+document.writeln("<br/>screen.colorDepth: "+screen.colorDepth) //Gives the bit depth of images on the client's screen
+document.writeln("<br/>screen.pixelDepth: "+screen.pixelDepth); 
+______
 
-    How to use DOM and Events?
-
-    Using DOM, JavaScript can perform multiple tasks. 
-    It can create new elements and attributes, 
-    change the existing elements and attributes and 
-    even remove existing elements and attributes. 
-    JavaScript can also react to existing events 
-    and create new events in the page.
+How to use DOM and Events?
+  Using DOM, JavaScript can perform multiple tasks. It can create new elements and attributes, 
+  change the existing elements and attributes and even remove existing elements and attributes. 
+  JavaScript can also react to existing events and create new events in the page.
 
      getElementById, innerHTML Example
      getElementById: To access elements and attributes whose id is set.
@@ -1466,10 +1622,11 @@ What is QuickSort Algorithm in JavaScript?
 
    _____
 
-   Explain Popup Message using event with example
+Explain Popup Message using event with example
 
-   Display a simple message "Welcome!!!" on your demo webpage and when
-the user hovers over the message, a popup should be displayed with a message "Welcome to my WebPage!!!".
+Display a simple message "Welcome!!!" on your demo webpage and when
+the user hovers over the message, 
+a popup should be displayed with a message "Welcome to my WebPage!!!".
 
    <script type="text/javascript">
     function trigger(){
@@ -1480,9 +1637,9 @@ the user hovers over the message, a popup should be displayed with a message "We
     }
     </script>
 
-   ______
+______
 
-   Give an example of JavaScript Multiplication Table?
+Give an example of JavaScript Multiplication Table?
     <script type="text/javascript">
      var rows = prompt("How many rows for your multiplication table?");
      var cols = prompt("How many columns for your multiplication table?");
@@ -1509,9 +1666,6 @@ the user hovers over the message, a popup should be displayed with a message "We
     document.write(output);
     }
   </script>
-
-  ______
-
 
 */
 

@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 1000vh;
+}
+
+.open{
+    background-color: antiquewhite;
+    width: 200px;
+    height: 100px;
+    padding: 30px;
+    margin: 20px auto 0px;
+    position: relative;
+    }
+    span{
+        margin-left:500px;;
+        /* display: none; */
+        color: red;
+       
+    }
+    .color{
+        color: red;
+    }
+    section{
+        background-color: red;
+        width: 100%;
+        height: 100%;
+    }
+    .scroll{
+        border-radius: 50%;
+        background-color: red;
+        color: rgb(243, 233, 233);
+        display: none;
+        padding: 10px;
+        right: 20px;
+        bottom: 20px;
+        /* width: 100px;
+        height: 100px; */
+        position: fixed;
+    }
+    .circle{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: red;
+        display: none;
+        border: 2px solid black;
+    }

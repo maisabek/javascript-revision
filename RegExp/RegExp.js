@@ -2,6 +2,7 @@
 
 A regular expression 
 are patterns used to match character combinations in strings. 
+is a pattern which is used to search string
 In JavaScript,regular expressions are also objects that describes a pattern of characters
 
 These patterns are used with the exec() and test() methods of RegExp, 
@@ -13,8 +14,8 @@ pattern-matching and search-and-replace functions on text.
 Creating a regular expression ?
 
 You construct a regular expression in one of two ways
-1- Using a regular expression literal, which consists of a pattern enclosed between slashes
- as follows:
+1-Using a regular expression literal, which consists of a pattern enclosed between slashes as 
+follows:
   
  let re = /ab+c/
  
@@ -63,6 +64,9 @@ Assertions (^, $, x(?=y), x(?!y), (?<=y)x, (?<!y)x, \b, \B)
 17- [^...]   Any one character not between the brackets.
 18- [...] Any one character between the brackets
 
+________
+
+What are the different repetition operators in Java Regex?
 Quantifiers  (*, +, ?, x{n}, x{n,}, x{n,m})
 
 19- p+   It matches any string containing one or more p's.
@@ -70,7 +74,7 @@ Quantifiers  (*, +, ?, x{n}, x{n,}, x{n,m})
 21- p?   It matches any string containing at most one p.
 22- p{N} It matches any string containing a sequence of N p's
 23- p{2,3} It matches any string containing a sequence of two or three p's.
-24- p{2, } It matches any string containing a sequence of at least two p's.
+24- p{2, } It matches any string containing a sequence of at least two p's.(at least x instances of occurrences)
 25- p$     It matches any string with p at the end of it.
 26- ^p     It matches any string with p at the beginning of it.
 27- p.p    It matches any string containing p, followed by any character,
@@ -79,7 +83,13 @@ Quantifiers  (*, +, ?, x{n}, x{n,}, x{n,m})
 29- <b>(.*)</b>   It matches any string enclosed within <b> and </b>.
 30- p(hp)*  It matches any string containing a p followed by
             zero or more instances of the sequence hp
+_______
 
+What is use of Dot(.) symbol in Java Regex?
+The dot is used for matching any character. For example, the following regex represents
+"a number plus any other character" [0-9].
+
+_______
 
 37- \xnn    The Latin character specified by the hexadecimal number nn; for example,
             \x0A is the same as \n
@@ -235,13 +245,12 @@ _________
 
 55- y ==>   
 Perform a "sticky" search that matches starting at the current position
-in the target string.See sticky.
+in the target string . See sticky
 
-const str1 = 'table football';
-const regex1 = new RegExp('foo', 'y');
+const str1 = 'table football'
+const regex1 = new RegExp('foo', 'y')
 
-regex1.lastIndex = 6;
-
+regex1.lastIndex = 6
 console.log(regex1.sticky) true
 
 console.log(regex1.test(str1))  true فرجع ترو foo لاقى 
@@ -442,15 +451,14 @@ Here is a list of the methods associated with RegExp along with their descriptio
 ___________
 
 59- RegExp exec Method
-Returns the matched text if a match is found, and null if not.
-
+Returns the matched text if a match is found, and null if not
 The exec method searches string for text that matches regexp.
 If it finds a match, it returns an array of results; otherwise, it returns null
 
  <script type = "text/javascript">
          var str = "Javascript is an interesting scripting language";
          var re = new RegExp( "script", "g" );
-         
+   
          var result = re.exec(str);
          document.write("Test 1 - returned value : " +  result); 
          
@@ -466,19 +474,18 @@ Test 2 - returned value : null
 ___________
 
 60-RegExp test Method
-Returns the matched text if a match is found, and null if not.
-
+Returns the matched text if a match is found, and null if not
 The test method searches string for text that matches regexp.
 If it finds a match, it returns true; otherwise, it returns false
 
   <script type = "text/javascript">
          var str = "Javascript is an interesting scripting language"
-         var re = new RegExp( "script", "g" )
+         var re = new RegExp( "script", "g")
          
          var result = re.test(str)
          document.write("Test 1 - returned value : " +  result)
          
-         re = new RegExp( "pushing", "g" );
+         re = new RegExp( "pushing", "g")
          
          var result = re.test(str);
          document.write("<br />Test 2 - returned value : " +  result); 
@@ -506,7 +513,7 @@ This method does not work with all the browsers.
          re = new RegExp( "/", "g" );
          
          var result = re.toSource(str);
-         document.write("<br />Test 2 - returned value : " +  result); 
+         document.write("<br />Test 2 - returned value : " + result); 
    </script>
 
 Output
@@ -558,15 +565,15 @@ ________
 Returns an iterator containing all of the matches, including capturing groups.
 اراى جوها اكتر من اراى
 
-const regexp = /t(e)(st(\d?))/g;
-const str = 'test1test2';
+const regexp = /t(e)(st(\d?))/g
+const str = 'test1test2'
 
-const array = [...str.matchAll(regexp)];
+const array = [...str.matchAll(regexp)]
 
-console.log(array[0]);
+console.log(array[0])
 // expected output: Array ["test1", "e", "st1", "1"]
 
-console.log(array[1]);
+console.log(array[1])
 // expected output: Array ["test2", "e", "st2", "2"]
 
 ________
@@ -638,6 +645,11 @@ const strCopy = str.split();
 console.log(strCopy);
 // expected output: Array ["The quick brown fox jumps over the lazy dog."]
 
+_______
+
+Write a regex to split String by new line?
+String lines[] = string.split("\\r?\\n")
+
 _________
 
 Capturing groups
@@ -648,19 +660,42 @@ Capturing groups
 
 That has two effects:
 1- It allows to get a part of the match as a separate item in the result array.
-2- If we put a quantifier after the parentheses, it applies to the parentheses as a whole.
+2- If we put a quantifier after the parentheses, it applies to the parentheses as a whole
 
+_________
 
 ؟؟ regular expression to search for a website domain لو عايزة اعمل 
 
 let regexp = /(\w+\.)+\w+/g
-alert( "site.com my.site.com".match(regexp) ); // site.com,my.site.com
+alert( "site.com my.site.com".match(regexp) ) // site.com,my.site.com
 The search works, but the pattern can’t match a domain with a hyphen, e.g. my-site.com,
-because the hyphen does not belong to class \w.
+because the hyphen does not belong to class \w
 We can fix it by replacing \w with [\w-] in every word except the last one: ([\w-]+\.)+\w+.
 
+________
 
-____________
+How do I remove all non alphanumeric characters from a string?
+Suppose you want to remove all character except a-z, 0-9 and "space"
+[^a-zA-Z0-9\s] 
+
+_________
+
+Simple regular expression for a decimal with a precision of 2
+\d+(\.\d{1,2})?
+
+_______
+
+What is Regular Expression to validate Email?
+^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$
+
+_________
+
+What is difference between matches() and find() in Java Regex?
+A: 
+matches() returns true only if the whole string matches the specified pattern while
+find() returns trues even if a substring matches the pattern.
+
+________
 
 const aliceExcerpt = 'The Caterpillar and Alice looked at each other'
 // abcd fghijklmnopqrstuvwxyz

@@ -1,0 +1,18 @@
+.open{
+background-color: antiquewhite;
+width: 200px;
+height: 100px;
+padding: 30px;
+margin: 20px auto 0px;
+}
+.box{
+    /* background-color: burlywood;
+    width: 200px;
+    height: 100px;
+    padding: 30px;
+    margin:auto;   */
+    /* display: none; */
+}
+.box2{
+    display: none;
+}
